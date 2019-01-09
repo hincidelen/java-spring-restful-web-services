@@ -63,7 +63,7 @@ public class UserResource {
 			throw new UserNotFoundException("User id="+id+" is not found." );
 		return newUser;
 	}
-	
+	 
 	@PostMapping("/users")
 	public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
 		//returne ResponseEntity diyerek HTTP status 201 created yapıyoruz.
@@ -73,7 +73,7 @@ public class UserResource {
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(savedUser.getId()).toUri();
-		// location headerına ekler.
+		// location headerına ekler. 
 		return ResponseEntity.created(location).build();
 	}
 }
